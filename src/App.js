@@ -1,16 +1,13 @@
 import React from 'react';
-import logo from './trivia.png';
-import './App.css';
+import Button from './components/button/index';
 
-export default function App() {
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          SUA VEZ
-        </p>
-      </header>
+    <div>
+      <Button/>
+      <Button button={'btn1'} text={'texto do botão'}/>
     </div>
   );
 }
+
+export default App;
