@@ -1,8 +1,9 @@
 import React from 'react';
 import './style.css';
-import Test from './imgtest.jpg';
+import getMd5 from '../../services/getMd5';
+import { fetchGravatar } from '../../services/apiRequest';
 
-function NavBar() {
+function Navbar() {
   return (
     <nav>
       <div className="left">
@@ -18,4 +19,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Navbar;
