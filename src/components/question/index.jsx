@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css'
 
-function Text() {
+function Question() {
   return (
     <div>
       <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match">
@@ -16,4 +16,4 @@ function Text() {
   )
 }
 
-export default Text;
+export default Question;

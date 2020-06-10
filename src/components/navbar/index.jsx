@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import Test from './imgtest.jpg'
 
-function Navbar() {
+function NavBar() {
   return (
     <nav>
       <div className="left">      
@@ -15,4 +15,4 @@ function Navbar() {
   )
 }
 
-export default Navbar;
+export default NavBar;
