@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Button({ index, correct_answer, result }) {
+function Button({ index, correctAnswer, result }) {
   return (
     <button
       className="buttons"
       data-testid={
-      result === correct_answer ? 'correct-answer' : `wrong-answer-${index}`
+      result === correctAnswer ? 'correct-answer' : `wrong-answer-${index}`
       }
     >
       {result}
@@ -15,7 +15,7 @@ function Button({ index, correct_answer, result }) {
 }
 
 Button.propTypes = {
-  correct_answer: PropTypes.string.isRequired,
+  correctAnswer: PropTypes.string.isRequired,
   result: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
 };
