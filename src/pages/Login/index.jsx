@@ -36,21 +36,21 @@ class Login extends React.Component {
           </div>
         )}
       </div>
-    )
+    );
   }
 
   render() {
     return (
       <div className="flexbox">
         <div className="uk-vertical-align-middle size">
-          <img 
-          className="uk-margin-bottom"
+          <img
+            className="uk-margin-bottom"
             width="306" height="104"
             src={Logo} alt="logo" />
 
           <form className="uk-panel uk-panel-box uk-form">
             <div className="uk-form-row">
-              <input 
+              <input
                 onInput={(e) => this.setState({ email: e.target.value })}
                 data-testid="input-gravatar-email"
                 className="uk-width-1-1 uk-form-large"
@@ -58,7 +58,7 @@ class Login extends React.Component {
             </div>
 
             <div className="uk-form-row">
-              <input 
+              <input
                 onInput={(e) => this.setState({ name: e.target.value })}
                 data-testid="input-player-name"
                 className="uk-width-1-1 uk-form-large"
