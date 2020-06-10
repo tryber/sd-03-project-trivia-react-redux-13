@@ -47,16 +47,20 @@ class Login extends React.Component {
 
           <form className="uk-panel uk-panel-box uk-form">
             <div className="uk-form-row">
-              <input onInput={(e) => this.setState({ email: e.target.value })}
+              <input
+                onInput={(e) => this.setState({ email: e.target.value })}
                 data-testid="input-gravatar-email" className="uk-width-1-1 uk-form-large"
-                type="email" placeholder="E-mail" />
+                type="email" placeholder="E-mail"
+              />
             </div>
 
             <div className="uk-form-row">
-              <input onInput={(e) => this.setState({ name: e.target.value })}
+              <input
+                onInput={(e) => this.setState({ name: e.target.value })}
                 data-testid="input-player-name"
                 className="uk-width-1-1 uk-form-large"
-                type="text" placeholder="Nome" />
+                type="text" placeholder="Nome"
+              />
             </div>
 
             <div className="uk-form-row"> {this.loginButton()} </div>
