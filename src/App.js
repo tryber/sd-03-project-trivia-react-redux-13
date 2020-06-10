@@ -1,16 +1,21 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import logo from './trivia.png';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Game from './pages/Game';
+import Feedback from './pages/Feedback';
+import Ranking from './pages/Ranking';
+import Settings from './pages/Settings';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>SUA VEZ</p>
-        </header>
-      </div>
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route path="/play" component={Game} />
+        <Route path="/feedback" component={Feedback} />
+        <Route path="/ranking" component={Ranking} />
+        <Route path="/settings" component={Settings} />
+      </Switch>
     </BrowserRouter>
   );
 }
