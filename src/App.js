@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Login from "./pages/Login"
-import Game from "./pages/Game"
-import Feedback from "./pages/Feedback"
-import Ranking from "./pages/Ranking"
-import Settings from "./pages/Settings"
+import Login from './pages/Login';
+import Game from './pages/Game';
+import Feedback from './pages/Feedback';
+import Ranking from './pages/Ranking';
+import Settings from './pages/Settings';
 
 function App() {
   return (
