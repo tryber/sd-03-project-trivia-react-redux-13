@@ -6,7 +6,7 @@ function Login() {
   return (
     <div className="flexbox">
       <div className="uk-vertical-align-middle size">
-        <img className="uk-margin-bottom" width="306" height="104" src={Logo} alt="logo"/>
+        <img className="uk-margin-bottom" width="306" height="104" src={Logo} alt="logo" />
         <form className="uk-panel uk-panel-box uk-form">
           <div className="uk-form-row">
             <input
