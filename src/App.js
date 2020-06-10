@@ -1,11 +1,18 @@
 import React from 'react';
-import Login from './pages/login/index';
+import { BrowserRouter } from 'react-router-dom';
+import logo from './trivia.png';
+import './App.css';
 
 function App() {
   return (
-    <div>
-      <Login/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>SUA VEZ</p>
+        </header>
+      </div>
+    </BrowserRouter>
   );
 }
 
