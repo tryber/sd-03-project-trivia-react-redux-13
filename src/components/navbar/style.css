@@ -1,7 +1,7 @@
 nav {
   align-items: center;
   background: #161616;
-  box-shadow: 1px 1px 20px 1px rgba(1,1,1,0.75);
+  box-shadow: 1px 1px 20px 1px rgba(1, 1, 1, 0.75);
   display: flex;
   justify-content: space-between;
 }

@@ -1,11 +1,13 @@
 import React from 'react';
 import './style.css';
 
-function AnswersButtons({correct_answer, incorrect_answers}) {
-  const sorted = [];
+function AnswersButtons() {
 
-  const randomicQuestions = (array) => array
-.sort((itemA, itemB) => Math.random() - Math.random())
+  const arr = [
+    1,
+    2,
+    3,
+  ];
 
   const getAnswersButtons = (arr) =>
     arr.map((result) => (
@@ -14,6 +16,6 @@ function AnswersButtons({correct_answer, incorrect_answers}) {
       </div>
     ));
   return <div>{getAnswersButtons(arr)}</div>;
-}
+};
 
 export default AnswersButtons;
