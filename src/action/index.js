@@ -1,8 +1,10 @@
 import { fetchApiTriviaQuestions } from '../services/apiRequest';
+import emailHash from '../services/getMd5';
 
 export const REQUEST_QUESTIONS = 'REQUEST_QUESTIONS';
 export const REQUEST_QUESTIONS_SUCCESS = 'REQUEST_QUESTIONS_SUCCESS';
 export const REQUEST_QUESTIONS_FAILURE = 'REQUEST_QUESTIONS_FAILURE';
+export const LOGIN_INFO = 'LOGIN_INFO';
 
 
 const requestQuestions = () => ({
@@ -32,3 +34,9 @@ export function requestFetch() {
   };
 }
 
+export const infoState = (email, name) => ({
+  type: LOGIN_INFO,
+  email,
+  name,
+  gravatar: emailHash(email),
+});

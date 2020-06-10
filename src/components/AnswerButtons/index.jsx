@@ -1,20 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import randomicQuestions from './randomicQuestions';
 import './style.css';
+import Button from './Button';
 
-function AnswersButtons() {
-  const arr = [
-    1,
-    2,
-    3,
-  ];
+function AnswersButtons({ correctAnswer, incorrectAnswer }) {
+  const answers = [correctAnswer, ...incorrectAnswer];
 
-  const getAnswersButtons = () =>
-    arr.map((result) => (
-      <div>
-        <button className="buttons">{result}</button>
-      </div>
-    ));
-  return <div>{getAnswersButtons(arr)}</div>;
+  const getAnswersButtons = (array) =>
+    randomicQuestions(array).map((result) => {
+      let index = 0;
+      if (result !== correctAnswer) index += 1;
+      return (
+        <Button index={index} correctAnswer={correctAnswer} result={result} />
+      );
+    });
+  return <div>{getAnswersButtons(answers)}</div>;
 }
+
+AnswersButtons.propTypes = {
+  correctAnswer: PropTypes.string.isRequired,
+  incorrectAnswer: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default AnswersButtons;
