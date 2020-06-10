@@ -1,0 +1,30 @@
+nav {
+  align-items: center;
+  background: #161616;
+  box-shadow: 1px 1px 20px 1px rgba(1, 1, 1, 0.75);
+  display: flex;
+  justify-content: space-between;
+}
+
+h3 {
+  color: aliceblue;
+  margin: 5px;
+  padding: 5px;
+}
+
+.left {
+  align-items: center;
+  display: flex;
+  margin-left: 30px;
+}
+
+.right {
+  margin-right: 30px;
+}
+
+.img {
+  border-radius: 100%;
+  height: 50px;
+  margin-right: 20px;
+  width: 50px;
+}

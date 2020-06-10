@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import logo from './trivia.png';
-import './App.css';
 
-export default function App() {
+function App() {
   return (
     <BrowserRouter>
       <div className="App">
@@ -15,3 +14,5 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
+export default App;
