@@ -15,6 +15,6 @@ function AnswersButtons() {
       </div>
     ));
   return <div>{getAnswersButtons(arr)}</div>;
-};
+}
 
 export default AnswersButtons;
