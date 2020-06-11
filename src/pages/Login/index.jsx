@@ -44,7 +44,7 @@ class Login extends React.Component {
     return (
       <div className="flexbox">
         <div className="uk-vertical-align-middle size">
-          <Link to="/settings"> <button className="btn-icon">
+          <Link to="/settings"> <button className="btn-icon" data-testid="btn-settings" >
             <img src={IconConfig} alt="config" className="icon" />
           </button>
           </Link>
