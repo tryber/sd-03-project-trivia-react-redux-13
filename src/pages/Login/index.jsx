@@ -2,15 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../trivia.png';
 import IconConfig from './config.png';
+import { fetchApiTriviaToken } from '../../services/apiRequest';
 import './style.css';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'a',
-      email: 'a',
+      name: '',
+      email: '',
+      token: '',
     };
+  }
+
+  async handleGame() {
+    const { setUserInfoStore } = this.props;
+    const saveToken = await fetchApiTriviaToken();
+    this.setState((state) => ({
+      ...state,
+      token: saveToken.token,
+    }));
+    localStorage.setItem('token', saveToken.token);
+    setUserInfoStore(this.state);
   }
 
   loginButton() {
@@ -23,17 +36,20 @@ class Login extends React.Component {
               className="uk-button uk-button-secondary uk-width-1-1"
               data-testid="btn-play"
             >
-              Entrar
+              Jogar
             </button>
           </div>
         ) : (
           <div className="uk-form-row">
-            <button
-              className="uk-button uk-button-secondary uk-width-1-1"
-              data-testid="btn-play"
-            >
-              Entrar
-            </button>
+            <Link to="/play">
+              <button
+                className="uk-button uk-button-secondary uk-width-1-1"
+                data-testid="btn-play"
+                onClick={() => this.handleGame()}
+              >
+                Entrar
+              </button>
+              </Link>
           </div>
         )}
       </div>
