@@ -7,9 +7,9 @@ export class SettingsPage extends Component {
       <div className="container">
         <h1 data-testid="settings-title" > Configurações </h1>
       </div>
-    )
+    );
   }
 }
 
-export default SettingsPage
+export default SettingsPage;
 

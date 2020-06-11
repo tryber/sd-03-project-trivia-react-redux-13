@@ -45,8 +45,8 @@ class Login extends React.Component {
       <div className="flexbox">
         <div className="uk-vertical-align-middle size">
           <Link to="/settings"> <button className="btn-icon">
-            <img src={IconConfig} alt="config" className="icon"/>
-            </button>
+            <img src={IconConfig} alt="config" className="icon" />
+          </button>
           </Link>
           <img className="uk-margin-bottom" width="306" height="104" src={Logo} alt="logo" />
 
