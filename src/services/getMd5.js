@@ -1,4 +1,4 @@
-import md5 from 'crypto-md5';
+import md5 from 'crypto-js';
 
 const emailHash = (email) => md5(email).toString().toLowerCase().trim();
 
