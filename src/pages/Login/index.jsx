@@ -23,7 +23,7 @@ class Login extends React.Component {
               className="uk-button uk-button-secondary uk-width-1-1"
               data-testid="btn-play"
             >
-              entrar
+              Entrar
             </button>
           </div>
         ) : (
@@ -32,7 +32,7 @@ class Login extends React.Component {
               className="uk-button uk-button-secondary uk-width-1-1"
               data-testid="btn-play"
             >
-              entrar
+              Entrar
             </button>
           </div>
         )}
