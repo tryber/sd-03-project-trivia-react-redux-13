@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './style.css';
-import { fetchGravatar } from '../../services/apiRequest';
-
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -17,13 +15,13 @@ class Navbar extends React.Component {
   }
 
   componentDidMount() {
-    this.updateSrc();
+    const { gravatar } = this.props;
+    this.updateSrc(gravatar);
   }
 
-  updateSrc() {
-    const { gravatar } = this.props;
+  updateSrc(hash) {
     this.setState({
-      src: fetchGravatar(gravatar),
+      src: `https://www.gravatar.com/avatar/${hash}`,
     });
   }
 

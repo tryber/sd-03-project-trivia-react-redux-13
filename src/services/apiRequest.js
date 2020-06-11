@@ -15,8 +15,3 @@ export const fetchApiTriviaQuestions = () => {
   const url = `https://opentdb.com/api.php?amount=5&token=${token}`;
   return requestFetch(url);
 };
-
-export const fetchGravatar = (hash) => {
-  const url = `https://www.gravatar.com/avatar/${hash}?d=https://www.gravatar.com/avatar/2d3bf5b67282f5f466e503d7022abcf3`;
-  return requestFetch(url);
-};

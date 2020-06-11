@@ -1,5 +1,5 @@
-import md5 from 'crypto-md5';
+const CryptoJS = require("crypto-js");
 
-const emailHash = (email) => md5(email).toString().toLowerCase().trim();
+const emailHash = (email) => CryptoJS(email).toString().toLowerCase().trim();
 
 export default emailHash;
