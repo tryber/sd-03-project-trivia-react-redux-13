@@ -1,6 +1,7 @@
 import React from 'react';
-// import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logo from '../../trivia.png';
+import IconConfig from './config.png';
 import './style.css';
 
 class Login extends React.Component {
@@ -43,6 +44,10 @@ class Login extends React.Component {
     return (
       <div className="flexbox">
         <div className="uk-vertical-align-middle size">
+          <Link to="/settings"> <button className="btn-icon">
+            <img src={IconConfig} alt="config" className="icon"/>
+            </button>
+          </Link>
           <img className="uk-margin-bottom" width="306" height="104" src={Logo} alt="logo" />
 
           <form className="uk-panel uk-panel-box uk-form">
