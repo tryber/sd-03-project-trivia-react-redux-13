@@ -32,7 +32,7 @@ class Navbar extends React.Component {
       <nav>
         <div className="left">
           <h3 data-testid="header-player-name">
-            <img src={src} className="img" alt="avatar" data-testid="header-profile-picture"/>
+            <img src={src} className="img" alt="avatar" data-testid="header-profile-picture" />
             Jogador: {name}
           </h3>
         </div>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Navbar from '../../components/Navbar'
+import PropTypes from 'prop-types';
+import Navbar from '../../components/Navbar';
 
 class Feedback extends React.Component {
   render() {
@@ -32,15 +33,20 @@ class Feedback extends React.Component {
               </Link>
             </div>
           </section>
-          </div>
+        </div>
       </div>
     );
   }
 }
 
 const mapStateToPros = state => ({
-  score: state.score,
   hits: state.hits,
+  score: state.score,
 });
+
+Feedback.propTypes = {
+  hits: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
+};
 
 export default connect(mapStateToPros)(Feedback);
