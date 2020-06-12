@@ -1,9 +1,10 @@
 import { LOGIN_INFO } from '../action';
 
 const INITIAL_STATE = {
-  email: '',
   name: '',
-  gravatar: '',
+  gravatarEmail: '',
+  assertions: 0,
+  score: 0,
 };
 
 const login = (state = INITIAL_STATE, action) => {
@@ -11,9 +12,10 @@ const login = (state = INITIAL_STATE, action) => {
     case LOGIN_INFO:
       return {
         ...state,
-        email: action.email,
         name: action.name,
-        gravatar: action.gravatar,
+        gravatarEmail: action.gravatar,
+        assertions: action.assertions,
+        score: action.score,
       };
     default:
       return state;
