@@ -1,9 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import "./style.css";
-import Navbar from "../../components/Navbar";
-import Question from "../../components/Question";
-import AnswerButtons from "../../components/AnswerButtons";
+import React from 'react';
+import { connect } from 'react-redux';
+import './style.css';
+import Navbar from '../../components/Navbar';
+import TriviaBody from './TriviaBody';
 
 class Game extends React.Component {
   constructor(props) {
@@ -31,7 +30,6 @@ class Game extends React.Component {
     }));
   }
 
-
   onClick(limit) {
     this.updateStates();
     this.nextQuestion(limit);
@@ -44,8 +42,11 @@ class Game extends React.Component {
       return (
         <div className="flexbox">
           <Navbar />
-          <Question data={data[index]} />
-          <AnswerButtons data={data[index]} update={this.updateStates} selected={selected} />
+          <TriviaBody
+            data={data[index]}
+            update={this.updateStates}
+            selected={selected}
+          />
           {next && (
             <button
               type="button"
