@@ -1,8 +1,9 @@
-import React from "react";
-import Question from "../../components/Question";
-import AnswerButtons from "../../components/AnswerButtons";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Question from '../../components/Question';
+import AnswerButtons from '../../components/AnswerButtons';
 
-function TriviaBody({ data, update, selected}) {
+function TriviaBody({ data, update, selected }) {
   if (data) {
     return (
       <div>
@@ -16,6 +17,12 @@ function TriviaBody({ data, update, selected}) {
     );
   }
   return <p>Loading...</p>;
+}
+
+TriviaBody.propTypes = {
+  data: PropTypes.object.isRequired,
+  update: PropTypes.func.isRequired,
+  selected: PropTypes.bool.isRequired,
 }
 
 export default TriviaBody;

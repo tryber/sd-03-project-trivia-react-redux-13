@@ -17,9 +17,11 @@ function Button({ index, correctAnswer, result, update, selected }) {
 }
 
 Button.propTypes = {
+  index: PropTypes.number.isRequired,
   correctAnswer: PropTypes.string.isRequired,
   result: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
+  update: PropTypes.func.isRequired,
+  selected: PropTypes.bool.isRequired,
 };
 
 export default Button;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './style.css';
 import Navbar from '../../components/Navbar';
 import TriviaBody from './TriviaBody';
@@ -17,12 +18,6 @@ class Game extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  nextQuestion(limit) {
-    this.setState((state) => ({
-      index: state.index + (1 % limit),
-    }));
-  }
-
   updateStates() {
     this.setState((state) => ({
       next: !state.next,
@@ -33,6 +28,12 @@ class Game extends React.Component {
   onClick(limit) {
     this.updateStates();
     this.nextQuestion(limit);
+  }
+
+  nextQuestion(limit) {
+    this.setState((state) => ({
+      index: state.index + (1 % limit),
+    }));
   }
 
   render() {
@@ -66,5 +67,9 @@ class Game extends React.Component {
 const mapStateToProps = (state) => ({
   data: state.request.data,
 });
+
+Game.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object),
+}
 
 export default connect(mapStateToProps)(Game);

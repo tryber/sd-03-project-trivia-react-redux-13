@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './style.css';
 
 function Question({ data }) {
@@ -17,5 +18,16 @@ function Question({ data }) {
     </div>
   );
 }
+
+Question.propTypes = {
+  data: PropTypes.shape({
+    category: PropTypes.string,
+    type: PropTypes.string,
+    difficulty: PropTypes.string,
+    question: PropTypes.string,
+    correct_answer: PropTypes.string,
+    incorrect_answers: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
+};
 
 export default Question;
