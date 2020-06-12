@@ -1,4 +1,4 @@
-import { LOGIN_INFO } from '../action';
+import { LOGIN_INFO, PLAYER_PONTUATION } from '../action';
 
 const INITIAL_STATE = {
   name: '',
@@ -13,9 +13,13 @@ const login = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         name: action.name,
-        gravatarEmail: action.gravatar,
-        assertions: action.assertions,
-        score: action.score,
+        gravatarEmail: `https://www.gravatar.com/avatar/${action.gravatar}`,
+      };
+    case PLAYER_PONTUATION:
+      return {
+        ...state,
+        assertions: state.assertions + 1,
+        score: state.score + action.score,
       };
     default:
       return state;

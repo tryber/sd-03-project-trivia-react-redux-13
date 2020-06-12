@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Logo from '../../trivia.png';
 import IconConfig from './config.png';
 import { fetchApiTriviaToken } from '../../services/apiRequest';
-import { requestFetch } from '../../action';
+import { requestFetch, infoState } from '../../action';
 import './style.css';
 
 class Login extends React.Component {
@@ -19,9 +19,11 @@ class Login extends React.Component {
   }
 
   async handleGame() {
-    const { getData } = this.props;
+    const { getData, setInfo } = this.props;
+    const { email, name } = this.state;
     await fetchApiTriviaToken();
     getData();
+    setInfo(email, name);
   }
 
   loginButton() {
@@ -92,10 +94,12 @@ class Login extends React.Component {
 
 const mapDispacthToProps = (dispatch) => ({
   getData: () => dispatch(requestFetch()),
+  setInfo: (email, name) => dispatch(infoState(email, name)),
 });
 
 Login.propTypes = {
   getData: PropTypes.func.isRequired,
+  setInfo: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispacthToProps)(Login);
