@@ -22,7 +22,7 @@ class Game extends React.Component {
   }
 
   componentDidMount() {
-    this.timer()
+    this.timer();
   }
 
   timer() {
@@ -37,10 +37,10 @@ class Game extends React.Component {
     this.setState({ intervalId });
   }
 
-  calculateScore(timer, difficulty) {
-    const difficultyValues = { hard: 3, medium: 2, easy: 1 };
-    return 10 + (timer * difficultyValues[difficulty]);
-  };
+  // calculateScore(timer, difficulty) {
+  //   const difficultyValues = { hard: 3, medium: 2, easy: 1 };
+  //   return 10 + (timer * difficultyValues[difficulty]);
+  // }
 
   onClick(limit) {
     this.updateStates();
@@ -97,7 +97,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setPontuation: (score) => dispatch(playerPontuation(score)),
-})
+});
 
 Game.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,

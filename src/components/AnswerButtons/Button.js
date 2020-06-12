@@ -5,7 +5,7 @@ function Button({ index, correctAnswer, result, update, selected }) {
   const handleOnClik = () => {
     if (result === correctAnswer) return update(true);
     return update(false);
-  }
+  };
   return (
     <button
       onClick={handleOnClik}
