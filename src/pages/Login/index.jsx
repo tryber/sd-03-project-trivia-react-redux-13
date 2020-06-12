@@ -16,7 +16,6 @@ class Login extends React.Component {
   }
 
   async handleGame() {
-    const { setUserInfoStore } = this.props;
     const saveToken = await fetchApiTriviaToken();
     this.setState((state) => ({
       ...state,
