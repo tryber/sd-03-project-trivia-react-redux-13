@@ -5,10 +5,8 @@ const requestFetch = (url) =>
     response.json().then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json))),
   );
 
-export const fetchApiTriviaToken = () => {
-  return requestFetch(urlToken)
-    .then(json => localStorage.setItem('token', json.token));
-};
+export const fetchApiTriviaToken = () => requestFetch(urlToken)
+  .then((json) => localStorage.setItem('token', json.token));
 
 export const fetchApiTriviaQuestions = () => {
   const token = localStorage.getItem('token');
