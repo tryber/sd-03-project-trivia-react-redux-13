@@ -23,7 +23,7 @@ class App extends React.Component {
           <Route path="/feedback" component={Feedback} />
           <Route path="/ranking" component={Ranking} />
           <Route path="/settings" component={Settings} />
-          <Route component={Login}/>
+          <Route component={Login} />
         </Switch>
       </BrowserRouter>
     );
