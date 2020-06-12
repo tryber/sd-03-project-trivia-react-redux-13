@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import randomicQuestions from './randomicQuestions';
 import './style.css';
 import Button from './Button';
+import typeData from '../types';
 
 function AnswersButtons({ data, update, selected }) {
-  const { correct_answer: correctAnswer , incorrect_answers: incorrectAnswers } = data;
+  const { correct_answer: correctAnswer, incorrect_answers: incorrectAnswers } = data;
   const answers = [correctAnswer, ...incorrectAnswers];
 
   const getAnswersButtons = (array) =>
@@ -27,14 +28,7 @@ function AnswersButtons({ data, update, selected }) {
 }
 
 AnswersButtons.propTypes = {
-  data: PropTypes.shape({
-    category: PropTypes.string,
-    type: PropTypes.string,
-    difficulty: PropTypes.string,
-    question: PropTypes.string,
-    correct_answer: PropTypes.string,
-    incorrect_answers: PropTypes.arrayOf(PropTypes.string),
-  }).isRequired,
+  data: PropTypes.shape(typeData).isRequired,
   update: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
 };

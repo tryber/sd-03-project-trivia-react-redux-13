@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
+import typeData from '../types';
 
 function Question({ data }) {
   return (
@@ -20,14 +21,7 @@ function Question({ data }) {
 }
 
 Question.propTypes = {
-  data: PropTypes.shape({
-    category: PropTypes.string,
-    type: PropTypes.string,
-    difficulty: PropTypes.string,
-    question: PropTypes.string,
-    correct_answer: PropTypes.string,
-    incorrect_answers: PropTypes.arrayOf(PropTypes.string),
-  }).isRequired,
+  data: PropTypes.shape(typeData).isRequired,
 };
 
 export default Question;

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Question from '../../components/Question';
 import AnswerButtons from '../../components/AnswerButtons';
+import typeData from '../../components/types';
 
 function TriviaBody({ data, update, selected }) {
   if (data) {
@@ -20,7 +21,7 @@ function TriviaBody({ data, update, selected }) {
 }
 
 TriviaBody.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape(typeData).isRequired,
   update: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
 }

@@ -18,16 +18,16 @@ class Game extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 
+  onClick(limit) {
+    this.updateStates();
+    this.nextQuestion(limit);
+  }
+
   updateStates() {
     this.setState((state) => ({
       next: !state.next,
       selected: !state.selected,
     }));
-  }
-
-  onClick(limit) {
-    this.updateStates();
-    this.nextQuestion(limit);
   }
 
   nextQuestion(limit) {
@@ -69,7 +69,7 @@ const mapStateToProps = (state) => ({
 });
 
 Game.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object),
-}
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default connect(mapStateToProps)(Game);
