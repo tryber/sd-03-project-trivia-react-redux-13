@@ -17,3 +17,16 @@ input {
   height: 100vh;
   justify-content: center;
 }
+
+.icon {
+  border: none;
+  height: 16px;
+  width: 16px;
+}
+
+.btn-icon {
+  background: white;
+  border: none;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
