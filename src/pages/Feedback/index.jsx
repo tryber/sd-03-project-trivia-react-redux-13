@@ -7,7 +7,7 @@ import Navbar from '../../components/Navbar';
 class Feedback extends React.Component {
   render() {
     // const state = (localStorage.getItem('state') !== null)
-    // ? JSON.parse(localStorage.getItem('state')) 
+    // ? JSON.parse(localStorage.getItem('state'))
     // : { player: { hits: '', score: '' } };
     // const { hits, score } = state.player;
     const { hits, score } = this.props;
