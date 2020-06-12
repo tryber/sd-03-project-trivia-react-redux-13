@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import randomicQuestions from "./randomicQuestions";
-import "./style.css";
-import Button from "./Button";
+import React from 'react';
+import PropTypes from 'prop-types';
+import randomicQuestions from './randomicQuestions';
+import './style.css';
+import Button from './Button';
 
 function AnswersButtons({ data }) {
   if (data !== undefined) {
