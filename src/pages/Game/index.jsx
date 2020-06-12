@@ -21,7 +21,6 @@ class Game extends React.Component {
   onClick(limit) {
     this.updateStates();
     this.nextQuestion(limit);
-    const { index } = this.state;
   }
 
   updateStates() {
@@ -72,6 +71,9 @@ const mapStateToProps = (state) => ({
 
 Game.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default connect(mapStateToProps)(Game);
