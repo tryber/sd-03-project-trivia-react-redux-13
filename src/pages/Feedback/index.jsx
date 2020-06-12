@@ -39,7 +39,7 @@ class Feedback extends React.Component {
   }
 }
 
-const mapStateToPros = state => ({
+const mapStateToPros = (state) => ({
   hits: state.hits,
   score: state.score,
 });
