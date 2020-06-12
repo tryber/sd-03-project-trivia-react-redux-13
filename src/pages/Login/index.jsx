@@ -19,9 +19,11 @@ class Login extends React.Component {
   }
 
   async handleGame() {
-    const { getData } = this.props;
+    const { getData, setInfo } = this.props;
+    const { email, name } = this.state;
     await fetchApiTriviaToken();
     getData();
+    setInfo(email, name);
   }
 
   loginButton() {
@@ -92,10 +94,12 @@ class Login extends React.Component {
 
 const mapDispacthToProps = (dispatch) => ({
   getData: () => dispatch(requestFetch()),
+  setInfo: (email, name) => dispatch(infoState(email, name)),
 });
 
 Login.propTypes = {
   getData: PropTypes.func.isRequired,
+  setInfo: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispacthToProps)(Login);
