@@ -24,6 +24,6 @@ TriviaBody.propTypes = {
   data: PropTypes.shape(typeData).isRequired,
   update: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
-}
+};
 
 export default TriviaBody;
