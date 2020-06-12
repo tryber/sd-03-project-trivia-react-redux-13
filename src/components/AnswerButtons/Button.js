@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Button({ index, correctAnswer, result }) {
+function Button({ index, correctAnswer, result, update, selected }) {
+  const handleOnClik = () => {
+    if (result === correctAnswer) return update(true);
+    return update(false);
+  };
   return (
     <button
+      onClick={handleOnClik}
       className="buttons"
+      disabled={selected}
       data-testid={
-      result === correctAnswer ? 'correct-answer' : `wrong-answer-${index}`
+        result === correctAnswer ? 'correct-answer' : `wrong-answer-${index}`
       }
     >
       {result}
@@ -15,9 +21,11 @@ function Button({ index, correctAnswer, result }) {
 }
 
 Button.propTypes = {
+  index: PropTypes.number.isRequired,
   correctAnswer: PropTypes.string.isRequired,
   result: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
+  update: PropTypes.func.isRequired,
+  selected: PropTypes.bool.isRequired,
 };
 
 export default Button;

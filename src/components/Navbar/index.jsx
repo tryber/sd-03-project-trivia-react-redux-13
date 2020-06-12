@@ -2,58 +2,33 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './style.css';
-import { fetchGravatar } from '../../services/apiRequest';
 
-
-class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      src: '',
-    };
-
-    this.updateSrc = this.updateSrc.bind(this);
-  }
-
-  componentDidMount() {
-    this.updateSrc();
-  }
-
-  updateSrc() {
-    const { gravatar } = this.props;
-    this.setState({
-      src: fetchGravatar(gravatar),
-    });
-  }
-
-  render() {
-    const { src } = this.state;
-    const { name } = this.props;
-    return (
-      <nav>
-        <div className="left">
-          <h3>
-            <img src={src} className="img" alt="avatar" />
-            Jogador: {name}
-          </h3>
-        </div>
-        <div className="right">
-          <h3>{10 + 10} Pontos</h3>
-        </div>
-      </nav>
-    );
-  }
+function Navbar({ name, score, gravatar }) {
+  return (
+    <nav>
+      <div className="left">
+        <h3 data-testid="header-player-name">
+          <img src={gravatar} className="img" alt="avatar" data-testid="header-profile-picture" />
+          Jogador: {name}
+        </h3>
+      </div>
+      <div data-testid="header-score" className="right">
+        <h3>{ score } Pontos</h3>
+      </div>
+    </nav>
+  );
 }
 
 const mapStateToProps = (state) => ({
-  gravatar: state.login.gravatar,
-  name: state.login.name,
+  gravatar: state.player.gravatarEmail,
+  name: state.player.name,
+  score: state.player.score,
 });
 
 Navbar.propTypes = {
   gravatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 export default connect(mapStateToProps)(Navbar);

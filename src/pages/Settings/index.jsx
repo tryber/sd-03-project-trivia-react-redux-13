@@ -3,7 +3,7 @@ import './style.css';
 
 function Login() {
   return (
-    <div className="flexbox">
+    <div className="flexbox" data-testid="settings-title">
       Teste
     </div>
   );
