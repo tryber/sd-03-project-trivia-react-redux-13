@@ -21,6 +21,7 @@ class Game extends React.Component {
   onClick(limit) {
     this.updateStates();
     this.nextQuestion(limit);
+    const { index } = this.state;
   }
 
   updateStates() {
@@ -37,8 +38,9 @@ class Game extends React.Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, history } = this.props;
     const { index, next, selected } = this.state;
+    if (index >= data.length) history.push('/feedback');
     if (data) {
       return (
         <div className="flexbox">
