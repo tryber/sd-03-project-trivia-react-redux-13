@@ -16,11 +16,11 @@ const login = (state = INITIAL_STATE, action) => {
         gravatarEmail: `https://www.gravatar.com/avatar/${action.gravatar}`,
       };
     case PLAYER_PONTUATION:
-        return {
-          ...state,
-          assertions: action.assertions,
-          score: action.score,
-        };
+      return {
+        ...state,
+        assertions: action.assertions,
+        score: action.score,
+      };
     default:
       return state;
   }

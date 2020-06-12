@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './style.css';
 
-function Navbar({ name, score, gravatar }){
+function Navbar({ name, score, gravatar }) {
   return (
     <nav>
       <div className="left">
