@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Logo from '../../trivia.png';
 import IconConfig from './config.png';
 import { fetchApiTriviaToken } from '../../services/apiRequest';
-import { requestFetch } from '../../action';
+import { requestFetch, infoState } from '../../action';
 import './style.css';
 
 class Login extends React.Component {

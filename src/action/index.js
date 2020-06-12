@@ -5,12 +5,11 @@ export const REQUEST_QUESTIONS = 'REQUEST_QUESTIONS';
 export const REQUEST_QUESTIONS_SUCCESS = 'REQUEST_QUESTIONS_SUCCESS';
 export const REQUEST_QUESTIONS_FAILURE = 'REQUEST_QUESTIONS_FAILURE';
 export const LOGIN_INFO = 'LOGIN_INFO';
-
+export const PLAYER_PONTUATION = 'PLAYER_PONTUATION';
 
 const requestQuestions = () => ({
   type: REQUEST_QUESTIONS,
 });
-
 
 const requestSuccess = (data) =>
   ({
@@ -36,7 +35,11 @@ export function requestFetch() {
 
 export const infoState = (email, name) => ({
   type: LOGIN_INFO,
-  email,
   name,
   gravatar: emailHash(email),
+});
+
+export const playerPontuation = (score) => ({
+  type: PLAYER_PONTUATION,
+  score,
 });
