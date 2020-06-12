@@ -4,7 +4,7 @@ import randomicQuestions from './randomicQuestions';
 import './style.css';
 import Button from './Button';
 
-function AnswersButtons({ data }) {
+function AnswersButtons({ data, update, selected }) {
   if (data !== undefined) {
     const { correct_answer, incorrect_answers } = data;
     const answers = [correct_answer, ...incorrect_answers];
@@ -19,6 +19,8 @@ function AnswersButtons({ data }) {
             correctAnswer={correct_answer}
             result={result}
             key={result}
+            update={update}
+            selected={selected}
           />
         );
       });

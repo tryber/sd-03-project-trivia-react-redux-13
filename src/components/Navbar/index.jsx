@@ -31,12 +31,12 @@ class Navbar extends React.Component {
     return (
       <nav>
         <div className="left">
-          <h3>
-            <img src={src} className="img" alt="avatar" />
+          <h3 data-testid="header-player-name">
+            <img src={src} className="img" alt="avatar" data-testid="header-profile-picture"/>
             Jogador: {name}
           </h3>
         </div>
-        <div className="right">
+        <div data-testid="header-score" className="right">
           <h3>{10 + 10} Pontos</h3>
         </div>
       </nav>

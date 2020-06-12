@@ -10,7 +10,12 @@ class Game extends React.Component {
     super(props);
     this.state = {
       index: 0,
+      next: false,
+      selected: false,
     };
+    this.nextQuestion = this.nextQuestion.bind(this);
+    this.updateStates = this.updateStates.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   nextQuestion(limit) {
@@ -19,23 +24,41 @@ class Game extends React.Component {
     }));
   }
 
+  updateStates() {
+    this.setState((state) => ({
+      next: !state.next,
+      selected: !state.selected,
+    }));
+  }
+
+
+  onClick(limit) {
+    this.updateStates();
+    this.nextQuestion(limit);
+  }
+
   render() {
     const { data } = this.props;
-    const { index } = this.state;
-    return (
-      <div className="flexbox">
-        <Navbar />
-        <Question data={data[index]} />
-        <AnswerButtons data={data[index]} />
-        <button
-          type="button"
-          className="button"
-          onClick={() => this.nextQuestion(data.length)}
-        >
-          PRÓXIMA PERGUNTA
-        </button>
-      </div>
-    );
+    const { index, next, selected } = this.state;
+    if (data) {
+      return (
+        <div className="flexbox">
+          <Navbar />
+          <Question data={data[index]} />
+          <AnswerButtons data={data[index]} update={this.updateStates} selected={selected} />
+          {next && (
+            <button
+              type="button"
+              className="button"
+              onClick={() => this.onClick(data.length)}
+            >
+              PRÓXIMA
+            </button>
+          )}
+        </div>
+      );
+    }
+    return <p>Loading...</p>;
   }
 }
 
