@@ -15,7 +15,7 @@ class Feedback extends React.Component {
     return (
       <div className="flexbox">
         <div className="size">
-          <header><Navbar /></header>
+          <Navbar />
           <h2 data-testid="feedback-text">{answerFeedback}</h2>
           <p data-testid="feedback-total-score">{`Você fez ${score} pontos`}</p>
           <p data-testid="feedback-total-question">{`Foram ${assertions} questões corretas!`}</p>

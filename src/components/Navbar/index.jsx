@@ -27,7 +27,7 @@ class Navbar extends React.Component {
 
   render() {
     const { src } = this.state;
-    const { name } = this.props;
+    const { name, score } = this.props;
     return (
       <nav>
         <div className="left">
@@ -37,7 +37,7 @@ class Navbar extends React.Component {
           </h3>
         </div>
         <div data-testid="header-score" className="right">
-          <h3>{10 + 10} Pontos</h3>
+          <h3>{ score } Pontos</h3>
         </div>
       </nav>
     );
@@ -45,13 +45,15 @@ class Navbar extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  gravatar: state.login.gravatar,
-  name: state.login.name,
+  gravatar: state.player.gravatarEmail,
+  name: state.player.name,
+  score: state.player.score,
 });
 
 Navbar.propTypes = {
   gravatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 export default connect(mapStateToProps)(Navbar);
