@@ -18,7 +18,7 @@ class Game extends React.Component {
     this.nextQuestion = this.nextQuestion.bind(this);
     this.updateStates = this.updateStates.bind(this);
     this.onClick = this.onClick.bind(this);
-    this.calculateScore = this.calculateScore.bind(this);
+    // this.calculateScore = this.calculateScore.bind(this);
   }
 
   // componentDidMount() {
