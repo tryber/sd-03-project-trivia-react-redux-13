@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Logo from '../../trivia.png';
 import IconConfig from './config.png';
 import { fetchApiTriviaToken } from '../../services/apiRequest';
+import { requestFetch } from '../../action';
 import './style.css';
 
 class Login extends React.Component {
@@ -12,16 +15,13 @@ class Login extends React.Component {
       name: '',
       email: '',
     };
+    this.handleGame = this.handleGame.bind(this);
   }
 
   async handleGame() {
-    const saveToken = await fetchApiTriviaToken();
-    this.setState((state) => ({
-      ...state,
-      token: saveToken.token,
-    }));
-    localStorage.setItem('token', saveToken.token);
-    // setUserInfoStore(this.state);
+    const { getData } = this.props;
+    await fetchApiTriviaToken();
+    getData();
   }
 
   loginButton() {
@@ -43,7 +43,7 @@ class Login extends React.Component {
               <button
                 className="uk-button uk-button-secondary uk-width-1-1"
                 data-testid="btn-play"
-                onClick={() => this.handleGame()}
+                onClick={this.handleGame}
               >
                 Entrar
               </button>
@@ -90,4 +90,12 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+const mapDispacthToProps = (dispatch) => ({
+  getData: () => dispatch(requestFetch()),
+});
+
+Login.propTypes = {
+  getData: PropTypes.func.isRequired,
+};
+
+export default connect(null, mapDispacthToProps)(Login);
