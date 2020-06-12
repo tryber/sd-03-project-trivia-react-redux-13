@@ -18,8 +18,8 @@ const login = (state = INITIAL_STATE, action) => {
     case PLAYER_PONTUATION:
       return {
         ...state,
-        assertions: action.assertions,
-        score: action.score,
+        assertions: state.assertions += 1,
+        score: state.score + action.score,
       };
     default:
       return state;

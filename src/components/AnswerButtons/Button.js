@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Button({ index, correctAnswer, result, update, selected }) {
+  const handleOnClik = () => {
+    if (result === correctAnswer) return update(true);
+    return update(false);
+  }
   return (
     <button
-      onClick={update}
+      onClick={handleOnClik}
       className="buttons"
       disabled={selected}
       data-testid={
