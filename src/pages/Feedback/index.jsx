@@ -6,15 +6,19 @@ import Navbar from '../../components/Navbar';
 
 class Feedback extends React.Component {
   render() {
-    const { hits, score } = this.props;
-    const answerFeedback = hits >= 3 ? 'Mandou bem!' : 'Podia ser melhor...';
+    // const state = (localStorage.getItem('state') !== null)
+    // ? JSON.parse(localStorage.getItem('state'))
+    // : { player: { assertions: '', score: '' } };
+    // const { assertions, score } = state.player;
+    const { assertions, score } = this.props;
+    const answerFeedback = assertions >= 3 ? 'Mandou bem!' : 'Podia ser melhor...';
     return (
       <div className="flexbox">
         <div className="size">
           <header><Navbar /></header>
           <h2 data-testid="feedback-text">{answerFeedback}</h2>
           <p data-testid="feedback-total-score">{`Você fez ${score} pontos`}</p>
-          <p data-testid="feedback-total-question">{`Foram ${hits} questões corretas!`}</p>
+          <p data-testid="feedback-total-question">{`Foram ${assertions} questões corretas!`}</p>
           <section>
             <div >
               <Link
@@ -40,12 +44,12 @@ class Feedback extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  hits: state.hits,
+  assertions: state.assertions,
   score: state.score,
 });
 
 Feedback.propTypes = {
-  hits: PropTypes.number.isRequired,
+  assertions: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
 };
 
