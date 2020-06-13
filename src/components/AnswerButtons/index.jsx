@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import randomicQuestions from './randomicQuestions';
 import './style.css';
 import Button from './Button';
+import typeData from '../types';
 
 class AnswersButtons extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class AnswersButtons extends React.Component {
   componentDidUpdate() {
     this.handleRandomizedAnswers();
   }
-
+  
   handleRandomizedAnswers() {
     const { data, update, selected } = this.props;
     const { correct_answer: correctAnswer, incorrect_answers: incorrectAnswers } = data;
@@ -51,6 +52,7 @@ class AnswersButtons extends React.Component {
 }
 
 AnswersButtons.propTypes = {
+  data: PropTypes.shape(typeData),
   update: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
 };
