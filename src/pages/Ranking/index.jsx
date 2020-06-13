@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
+import { connect } from 'react-redux';
 import './style.css';
 
 const players = [
@@ -17,33 +18,38 @@ const players = [
     pontuacao: 90,
   },
 ];
-class Ranking extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
-  tableHead() {
-    return (
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Pontuação</th>
+function tableHead() {
+  return (
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Pontuação</th>
+      </tr>
+    </thead>
+  );
+}
+
+function tableBody() {
+  return (
+    <tbody>
+      {players.map((player) => (
+        <tr key={player.nome}>
+          <th>{player.nome}</th>
+          <th>{player.pontuacao}</th>
         </tr>
-      </thead>
-    );
-  }
+      ))}
+    </tbody>
+  );
+}
+class Ranking extends React.Component {
 
-  tableBody() {
-    return (
-      <tbody>
-        {players.map((player) => (
-          <tr key={player.nome}>
-            <th>{player.nome}</th>
-            <th>{player.pontuacao}</th>
-          </tr>
-        ))}
-      </tbody>
-    );
+  componentDidMount() {
+    const { name, score, picture } = this.props;
+    localStorage.setItem('ranking', [name, score, picture]);
+  //   if (!localStorage.getItem('ranking')) {
+  //     localStorage.setItem('ranking', [name, score, picture]);
+  //   }
   }
 
   render() {
@@ -51,8 +57,8 @@ class Ranking extends React.Component {
       <div className="flexbox">
         <h4>Ranking</h4>
         <div>
-          {this.tableHead()}
-          {this.tableBody()}
+          {tableHead()}
+          {tableBody()}
         </div>
         <button data-testid="btn-go-home">
           <Link to="/">Início</Link>
@@ -62,12 +68,16 @@ class Ranking extends React.Component {
   }
 }
 
-// function Login() {
-//   return (
-//     <div className='flexbox'>
-//       Teste
-//     </div>
-//   );
-// }
+const mapStateToProps = (state) => ({
+  name: state.player.name,
+  score: state.player.score,
+  picture: state.player.gravatarEmail,
+});
 
-export default Ranking;
+Ranking.propTypes = {
+  name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  picture: PropTypes.string.isRequired,
+};
+
+export default connect(mapStateToProps)(Ranking);
