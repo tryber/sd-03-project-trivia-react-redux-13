@@ -21,21 +21,26 @@ class Game extends React.Component {
     // this.calculateScore = this.calculateScore.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.timer();
-  // }
+  componentDidMount() {
+    this.timer();
+  }
 
-  // timer() {
-  //   const intervalId = setInterval(() => {
-  //     this.setState((state) => {
-  //       if (state.timer > 1) {
-  //         return { timer: state.timer - 1 };
-  //       }
-  //       return { timer: 0 };
-  //     });
-  //   }, 1000);
-  //   this.setState({ intervalId });
-  // }
+  componentWillUnmount() {
+    clearInterval(this.state.interval);
+    this.timer()
+  }
+
+  timer() {
+    const interval = setInterval(() => {
+      this.setState((state) => {
+        if (state.timer > 1) {
+          return { timer: state.timer - 1 };
+        }
+        return { timer: 0 };
+      });
+    }, 1000);
+    this.setState({ interval });
+  }
 
   // calculateScore(timer, difficulty) {
   //   const difficultyValues = { hard: 3, medium: 2, easy: 1 };
