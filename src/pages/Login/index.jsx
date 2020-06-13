@@ -49,7 +49,7 @@ class Login extends React.Component {
               >
                 Entrar
               </button>
-            </Link>oarruda
+            </Link>
           </div>
         )}
       </div>
