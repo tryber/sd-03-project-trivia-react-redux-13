@@ -28,29 +28,29 @@ class Game extends React.Component {
   componentWillUnmount() {
     clearInterval(this.state.interval);
     this.timer()
-  }
-
-  timer() {
-    const interval = setInterval(() => {
-      this.setState((state) => {
-        if (state.timer > 1) {
-          return { timer: state.timer - 1 };
-        }
-        return { timer: 0 };
-      });
-    }, 1000);
-    this.setState({ interval });
-  }
+  };
 
   // calculateScore(timer, difficulty) {
-  //   const difficultyValues = { hard: 3, medium: 2, easy: 1 };
-  //   return 10 + (timer * difficultyValues[difficulty]);
-  // }
+    //   const difficultyValues = { hard: 3, medium: 2, easy: 1 };
+    //   return 10 + (timer * difficultyValues[difficulty]);
+    // }
+    
+    onClick(limit) {
+      this.updateStates();
+      this.nextQuestion(limit);
+    }
 
-  onClick(limit) {
-    this.updateStates();
-    this.nextQuestion(limit);
-  }
+    timer() {
+      const interval = setInterval(() => {
+        this.setState((state) => {
+          if (state.timer > 1) {
+            return { timer: state.timer - 1 };
+          }
+          return { timer: 0 };
+        });
+      }, 1000);
+      this.setState({ interval });
+    }
 
   updateStates(isCorrect) {
     this.setState((state) => ({

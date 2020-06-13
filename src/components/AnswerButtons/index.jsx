@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import randomicQuestions from './randomicQuestions';
 import './style.css';
 import Button from './Button';
-import typeData from '../types';
 
 class AnswersButtons extends React.Component {
   constructor(props) {
@@ -15,12 +14,12 @@ class AnswersButtons extends React.Component {
   }
 
   componentDidUpdate() {
-    const { data, update, selected } = this.props
+    const { data, update, selected } = this.props;
     const { correct_answer: correctAnswer, incorrect_answers: incorrectAnswers } = data;
-    const { randomizedAnswers, currentQuestion } = this.state
+    const { randomizedAnswers, currentQuestion } = this.state;
     const answers = [correctAnswer, ...incorrectAnswers];
     if (!randomizedAnswers || currentQuestion !== data.question) {
-      let randomized = randomicQuestions(answers).map((result) => {
+      const randomized = randomicQuestions(answers).map((result) => {
         let index = 0;
         if (result !== correctAnswer) index += 1;
         return (
@@ -33,11 +32,11 @@ class AnswersButtons extends React.Component {
             selected={selected}
           />
         );
-      })
+      });
       this.setState({
         currentQuestion: data.question,
         randomizedAnswers: randomized,
-      })
+      });
     }
   }
 
@@ -47,7 +46,9 @@ class AnswersButtons extends React.Component {
 }
 
 AnswersButtons.propTypes = {
-  data: PropTypes.shape(typeData),
+  data: PropTypes.shape({
+    typeData: PropTypes.object,
+  }),
   update: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
 };
