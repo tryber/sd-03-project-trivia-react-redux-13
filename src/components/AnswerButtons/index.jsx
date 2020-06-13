@@ -18,7 +18,7 @@ class AnswersButtons extends React.Component {
   componentDidUpdate() {
     this.handleRandomizedAnswers();
   }
-  
+
   handleRandomizedAnswers() {
     const { data, update, selected } = this.props;
     const { correct_answer: correctAnswer, incorrect_answers: incorrectAnswers } = data;
@@ -52,7 +52,7 @@ class AnswersButtons extends React.Component {
 }
 
 AnswersButtons.propTypes = {
-  data: PropTypes.shape(typeData),
+  data: PropTypes.shape(typeData).isRequired,
   update: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
 };
