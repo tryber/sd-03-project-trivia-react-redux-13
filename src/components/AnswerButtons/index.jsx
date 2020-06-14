@@ -5,26 +5,50 @@ import './style.css';
 import Button from './Button';
 import typeData from '../types';
 
-function AnswersButtons({ data, update, selected }) {
-  const { correct_answer: correctAnswer, incorrect_answers: incorrectAnswers } = data;
-  const answers = [correctAnswer, ...incorrectAnswers];
+class AnswersButtons extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      randomizedAnswers: '',
+      currentQuestion: '',
+    };
+    this.handleRandomizedAnswers = this.handleRandomizedAnswers.bind(this);
+  }
 
-  const getAnswersButtons = (array) =>
-    randomicQuestions(array).map((result) => {
-      let index = 0;
-      if (result !== correctAnswer) index += 1;
-      return (
-        <Button
-          index={index}
-          correctAnswer={correctAnswer}
-          result={result}
-          key={result}
-          update={update}
-          selected={selected}
-        />
-      );
-    });
-  return <div>{getAnswersButtons(answers)}</div>;
+  componentDidUpdate() {
+    this.handleRandomizedAnswers();
+  }
+
+  handleRandomizedAnswers() {
+    const { data, update, selected } = this.props;
+    const { correct_answer: correctAnswer, incorrect_answers: incorrectAnswers } = data;
+    const { randomizedAnswers, currentQuestion } = this.state;
+    const answers = [correctAnswer, ...incorrectAnswers];
+    if (!randomizedAnswers || currentQuestion !== data.question) {
+      const randomized = randomicQuestions(answers).map((result) => {
+        let index = 0;
+        if (result !== correctAnswer) index += 1;
+        return (
+          <Button
+            index={index}
+            correctAnswer={correctAnswer}
+            result={result}
+            key={result}
+            update={update}
+            selected={selected}
+          />
+        );
+      });
+      this.setState({
+        currentQuestion: data.question,
+        randomizedAnswers: randomized,
+      });
+    }
+  }
+
+  render() {
+    return <div>{this.state.randomizedAnswers}</div>;
+  }
 }
 
 AnswersButtons.propTypes = {
