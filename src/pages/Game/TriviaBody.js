@@ -4,16 +4,12 @@ import Question from '../../components/Question';
 import AnswerButtons from '../../components/AnswerButtons';
 import typeData from '../../components/types';
 
-function TriviaBody({ data, update, selected }) {
+function TriviaBody({ data, onHandleSelect, selected }) {
   if (data) {
     return (
       <div>
         <Question data={data} />
-        <AnswerButtons
-          data={data}
-          update={update}
-          selected={selected}
-        />
+        <AnswerButtons data={data} onHandleSelect={onHandleSelect} selected={selected} />
       </div>
     );
   }
@@ -21,8 +17,8 @@ function TriviaBody({ data, update, selected }) {
 }
 
 TriviaBody.propTypes = {
-  data: PropTypes.shape(typeData).isRequired,
-  update: PropTypes.func.isRequired,
+  data: PropTypes.shape(typeData),
+  onHandleSelect: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
 };
 
