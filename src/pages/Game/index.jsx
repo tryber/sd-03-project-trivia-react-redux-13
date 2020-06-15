@@ -44,12 +44,6 @@ class Game extends React.Component {
     if (isCorrect) this.props.setPontuation(calculateScore(timer, difficulty));
   }
 
-  nextQuestion(limit) {
-    this.setState((state) => ({
-      index: state.index + (1 % limit),
-    }));
-  }
-
   getNextButton() {
     const { index } = this.state;
     if (index < 4) {
@@ -76,6 +70,12 @@ class Game extends React.Component {
         </button>
       </Link>
     );
+  }
+
+  nextQuestion(limit) {
+    this.setState((state) => ({
+      index: state.index + (1 % limit),
+    }));
   }
 
   timer() {
