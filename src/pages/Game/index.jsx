@@ -1,11 +1,12 @@
-import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import "./style.css";
-import Navbar from "../../components/Navbar";
-import TriviaBody from "./TriviaBody";
-import { playerPontuation } from "../../action";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import './style.css';
+import Navbar from '../../components/Navbar';
+import TriviaBody from './TriviaBody';
+import { playerPontuation } from '../../action';
+import calculateScore from './calculateScore';
 
 class Game extends React.Component {
   constructor(props) {
@@ -31,11 +32,6 @@ class Game extends React.Component {
     this.timer();
   }
 
-  calculateScore(timer, difficulty) {
-    const difficultyValues = { hard: 3, medium: 2, easy: 1 };
-    return 10 + timer * difficultyValues[difficulty];
-  }
-
   onClick(limit) {
     this.onHandleSelect();
     this.nextQuestion(limit);
@@ -58,8 +54,7 @@ class Game extends React.Component {
     this.setState((state) => ({
       selected: !state.selected,
     }));
-    if (isCorrect)
-      this.props.setPontuation(this.calculateScore(timer, difficulty));
+    if (isCorrect) this.props.setPontuation(calculateScore(timer, difficulty));
   }
 
   nextQuestion(limit) {

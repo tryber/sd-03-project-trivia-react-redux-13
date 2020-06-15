@@ -22,28 +22,11 @@ class AnswersButtons extends React.Component {
     return this.handleRandomizedAnswers();
   }
 
-  handleRandomizedAnswers() {
-    const { data } = this.props;
-    const {
-      correct_answer: correctAnswer,
-      incorrect_answers: incorrectAnswers,
-    } = data;
-    const { randomizedAnswers, currentQuestion } = this.state;
-    const answers = [correctAnswer, ...incorrectAnswers];
-    if (!randomizedAnswers || currentQuestion !== data.question) {
-      const randomized = randomicQuestions(answers);
-      this.setState({
-        currentQuestion: data.question,
-        randomizedAnswers: randomized,
-      });
-    }
-  }
-
   getButtons() {
     const { data, onHandleSelect, selected } = this.props;
     const { correct_answer: correctAnswer, difficulty } = data;
     const { randomizedAnswers } = this.state;
-    if (randomizedAnswers)
+    if (randomizedAnswers) {
       return randomizedAnswers.map((result) => {
         let index = 0;
         if (result !== correctAnswer) index += 1;
@@ -59,7 +42,25 @@ class AnswersButtons extends React.Component {
           />
         );
       });
+    }
     return <p>Loading...</p>;
+  }
+
+  handleRandomizedAnswers() {
+    const { data } = this.props;
+    const {
+      correct_answer: correctAnswer,
+      incorrect_answers: incorrectAnswers,
+    } = data;
+    const { randomizedAnswers, currentQuestion } = this.state;
+    const answers = [correctAnswer, ...incorrectAnswers];
+    if (!randomizedAnswers || currentQuestion !== data.question) {
+      const randomized = randomicQuestions(answers);
+      this.setState({
+        currentQuestion: data.question,
+        randomizedAnswers: randomized,
+      });
+    }
   }
 
   render() {

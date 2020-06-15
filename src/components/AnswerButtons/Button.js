@@ -9,10 +9,10 @@ function Button({ index, correctAnswer, result, difficulty, onHandleSelect, sele
 
   const getClasses = () => {
     if (selected) {
-      return result === correctAnswer ? 'buttons correct' : `buttons incorrect`
+      return result === correctAnswer ? 'buttons correct' : 'buttons incorrect';
     }
-    return 'buttons'
-  }
+    return 'buttons';
+  };
 
   return (
     <button
@@ -34,6 +34,7 @@ Button.propTypes = {
   result: PropTypes.string.isRequired,
   onHandleSelect: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
+  difficulty: PropTypes.string.isRequired,
 };
 
 export default Button;

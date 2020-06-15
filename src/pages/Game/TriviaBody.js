@@ -17,7 +17,7 @@ function TriviaBody({ data, onHandleSelect, selected }) {
 }
 
 TriviaBody.propTypes = {
-  data: PropTypes.shape(typeData),
+  data: PropTypes.shape(typeData).isRequired,
   onHandleSelect: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
 };
