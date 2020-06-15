@@ -28,7 +28,6 @@ class Game extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.state.interval);
-    this.timer();
   }
 
   onClick(limit) {
