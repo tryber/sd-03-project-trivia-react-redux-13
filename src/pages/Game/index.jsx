@@ -23,6 +23,11 @@ class Game extends React.Component {
   }
 
   componentDidMount() {
+    const { name, assertions, score, gravatarEmail } = this.props;
+    const setPlayer = JSON.stringify({
+      player: { name, assertions, score, gravatarEmail },
+    });
+    localStorage.setItem('state', setPlayer);
     this.timer();
   }
 
@@ -33,14 +38,23 @@ class Game extends React.Component {
   onClick(limit) {
     this.onHandleSelect();
     this.nextQuestion(limit);
+    this.setState({ timer: 30 });
   }
 
-  onHandleSelect(isCorrect, difficulty) {
+  async onHandleSelect(isCorrect, difficulty) {
     const { timer } = this.state;
     this.setState((state) => ({
       selected: !state.selected,
     }));
-    if (isCorrect) this.props.setPontuation(calculateScore(timer, difficulty));
+    if (isCorrect) {
+      await this.props.setPontuation(calculateScore(timer, difficulty));
+    }
+    const { name, assertions, score, gravatarEmail } = this.props;
+    console.log(name, assertions, score, gravatarEmail);
+    const setPlayer = JSON.stringify({
+      player: { name, assertions, score, gravatarEmail },
+    });
+    localStorage.setItem('state', setPlayer);
   }
 
   getNextButton() {
@@ -112,15 +126,23 @@ class Game extends React.Component {
 
 const mapStateToProps = (state) => ({
   data: state.request.data,
+  assertions: state.player.assertions,
+  score: state.player.score,
+  name: state.player.name,
+  gravatarEmail: state.player.gravatarEmail,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setPontuation: (score) => dispatch(playerPontuation(score)),
+  setPontuation: async (score) => dispatch(playerPontuation(score)),
 });
 
 Game.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   setPontuation: PropTypes.func.isRequired,
+  assertions: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  gravatarEmail: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
