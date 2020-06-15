@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
+import GetLinks from './GetLinks';
 import setLocalStorage from './setLocalStorage';
 
 class Feedback extends React.Component {

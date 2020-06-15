@@ -10,6 +10,6 @@ const setLocalStorage = () => {
     localStorage.setItem('ranking', updateRaking);
   }
   localStorage.setItem('ranking', JSON.stringify(player));
-}
+};
 
 export default setLocalStorage;
