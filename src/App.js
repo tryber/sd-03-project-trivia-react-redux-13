@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { requestFetch } from './action';
+import { fetchApiTriviaToken } from './services/apiRequest';
 import Login from './pages/Login';
 import Game from './pages/Game';
 import Feedback from './pages/Feedback';
@@ -11,7 +9,7 @@ import Settings from './pages/Settings';
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.getData();
+    fetchApiTriviaToken();
   }
 
   render() {
@@ -30,12 +28,4 @@ class App extends React.Component {
   }
 }
 
-const mapDispacthToProps = (dispatch) => ({
-  getData: () => dispatch(requestFetch()),
-});
-
-App.propTypes = {
-  getData: PropTypes.func.isRequired,
-};
-
-export default connect(null, mapDispacthToProps)(App);
+export default App;

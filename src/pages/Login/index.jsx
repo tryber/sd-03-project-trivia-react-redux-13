@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Logo from '../../trivia.png';
 import IconConfig from './config.png';
-import { fetchApiTriviaToken } from '../../services/apiRequest';
 import { requestFetch, infoState } from '../../action';
 import './style.css';
 
@@ -18,12 +17,11 @@ class Login extends React.Component {
     this.handleGame = this.handleGame.bind(this);
   }
 
-  async handleGame() {
+  handleGame() {
     const { getData, setInfo } = this.props;
     const { email, name } = this.state;
-    await fetchApiTriviaToken();
-    getData();
     setInfo(email, name);
+    getData();
   }
 
   loginButton() {
