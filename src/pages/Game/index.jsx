@@ -19,7 +19,6 @@ class Game extends React.Component {
     this.nextQuestion = this.nextQuestion.bind(this);
     this.onHandleSelect = this.onHandleSelect.bind(this);
     this.onClick = this.onClick.bind(this);
-    this.calculateScore = this.calculateScore.bind(this);
     this.getNextButton = this.getNextButton.bind(this);
   }
 
@@ -35,18 +34,6 @@ class Game extends React.Component {
   onClick(limit) {
     this.onHandleSelect();
     this.nextQuestion(limit);
-  }
-
-  timer() {
-    const interval = setInterval(() => {
-      this.setState((state) => {
-        if (state.timer > 1) {
-          return { timer: state.timer - 1 };
-        }
-        return { timer: 0, selected: true };
-      });
-    }, 1000);
-    this.setState({ interval });
   }
 
   onHandleSelect(isCorrect, difficulty) {
@@ -89,6 +76,18 @@ class Game extends React.Component {
         </button>
       </Link>
     );
+  }
+
+  timer() {
+    const interval = setInterval(() => {
+      this.setState((state) => {
+        if (state.timer > 1) {
+          return { timer: state.timer - 1 };
+        }
+        return { timer: 0, selected: true };
+      });
+    }, 1000);
+    this.setState({ interval });
   }
 
   render() {

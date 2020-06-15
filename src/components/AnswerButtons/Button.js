@@ -1,23 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { onHandleClick, getClasses } from './helpers';
 
 function Button({ index, correctAnswer, result, difficulty, onHandleSelect, selected }) {
-  const onHandleClick = () => {
-    if (result === correctAnswer) return onHandleSelect(true, difficulty);
-    return onHandleSelect(false);
-  };
-
-  const getClasses = () => {
-    if (selected) {
-      return result === correctAnswer ? 'buttons correct' : 'buttons incorrect';
-    }
-    return 'buttons';
-  };
-
   return (
     <button
-      onClick={onHandleClick}
-      className={getClasses()}
+      onClick={() => onHandleClick(result, correctAnswer, difficulty, onHandleSelect)}
+      className={getClasses(selected, result, correctAnswer)}
       disabled={selected}
       data-testid={
         result === correctAnswer ? 'correct-answer' : `wrong-answer-${index}`
