@@ -1,16 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Navbar from '../../components/Navbar';
+import GetLinks from './GetLinks';
+import setLocalStorage from './setLocalStorage';
 
 class Feedback extends React.Component {
+  constructor(props) {
+    super(props);
+    this.setLocalStorage = this.setLocalStorage.bind(this);
+  }
+
+  componentDidMount() {
+    setLocalStorage();
+  }
+
   render() {
-    // const state = (localStorage.getItem('state') !== null)
-    // ? JSON.parse(localStorage.getItem('state'))
-    // : { player: { assertions: '', score: '' } };
-    // const { assertions, score } = state.player;
-    const { assertions, score } = this.props;
+    const state = (localStorage.getItem('state') !== null)
+    ? JSON.parse(localStorage.getItem('state'))
+    : { player: { name: '', gravatarEmail: '', assertions: 0, score: 0 } };
+    const { assertions, score } = state.player;
     const answerFeedback = assertions >= 3 ? 'Mandou bem!' : 'Podia ser melhor...';
     return (
       <div className="flexbox">
@@ -21,20 +28,7 @@ class Feedback extends React.Component {
           <p data-testid="feedback-total-question">{`Foram ${assertions} questões corretas!`}</p>
           <section>
             <div >
-              <Link
-                className="uk-button uk-button-secondary uk-width-1-1"
-                data-testid="btn-ranking"
-                to="/ranking"
-              >
-                VER RANKING
-              </Link>
-              <Link
-                className="uk-button uk-button-danger uk-width-1-1"
-                data-testid="btn-play-again"
-                to="/"
-              >
-                JOGAR NOVAMENTE
-              </Link>
+              <GetLinks />
             </div>
           </section>
         </div>
@@ -43,14 +37,4 @@ class Feedback extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  assertions: state.player.assertions,
-  score: state.player.score,
-});
-
-Feedback.propTypes = {
-  assertions: PropTypes.number.isRequired,
-  score: PropTypes.number.isRequired,
-};
-
-export default connect(mapStateToProps)(Feedback);
+export default Feedback;

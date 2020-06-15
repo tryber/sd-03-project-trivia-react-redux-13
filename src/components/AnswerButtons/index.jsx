@@ -5,31 +5,72 @@ import './style.css';
 import Button from './Button';
 import typeData from '../types';
 
-function AnswersButtons({ data, update, selected }) {
-  const { correct_answer: correctAnswer, incorrect_answers: incorrectAnswers } = data;
-  const answers = [correctAnswer, ...incorrectAnswers];
+class AnswersButtons extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      randomizedAnswers: '',
+      currentQuestion: '',
+    };
+    this.handleRandomizedAnswers = this.handleRandomizedAnswers.bind(this);
+    this.getButtons = this.getButtons.bind(this);
+  }
 
-  const getAnswersButtons = (array) =>
-    randomicQuestions(array).map((result) => {
-      let index = 0;
-      if (result !== correctAnswer) index += 1;
-      return (
-        <Button
-          index={index}
-          correctAnswer={correctAnswer}
-          result={result}
-          key={result}
-          update={update}
-          selected={selected}
-        />
-      );
-    });
-  return <div>{getAnswersButtons(answers)}</div>;
+  componentDidUpdate() {
+    const { selected } = this.props;
+    if (selected) return this.getButtons();
+    return this.handleRandomizedAnswers();
+  }
+
+  getButtons() {
+    const { data, onHandleSelect, selected } = this.props;
+    const { correct_answer: correctAnswer, difficulty } = data;
+    const { randomizedAnswers } = this.state;
+    if (randomizedAnswers) {
+      return randomizedAnswers.map((result) => {
+        let index = 0;
+        if (result !== correctAnswer) index += 1;
+        return (
+          <Button
+            index={index}
+            correctAnswer={correctAnswer}
+            difficulty={difficulty}
+            result={result}
+            key={result}
+            onHandleSelect={onHandleSelect}
+            selected={selected}
+          />
+        );
+      });
+    }
+    return <p>Loading...</p>;
+  }
+
+  handleRandomizedAnswers() {
+    const { data } = this.props;
+    const {
+      correct_answer: correctAnswer,
+      incorrect_answers: incorrectAnswers,
+    } = data;
+    const { randomizedAnswers, currentQuestion } = this.state;
+    const answers = [correctAnswer, ...incorrectAnswers];
+    if (!randomizedAnswers || currentQuestion !== data.question) {
+      const randomized = randomicQuestions(answers);
+      this.setState({
+        currentQuestion: data.question,
+        randomizedAnswers: randomized,
+      });
+    }
+  }
+
+  render() {
+    return <div>{this.getButtons()}</div>;
+  }
 }
 
 AnswersButtons.propTypes = {
   data: PropTypes.shape(typeData).isRequired,
-  update: PropTypes.func.isRequired,
+  onHandleSelect: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
 };
 

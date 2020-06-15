@@ -12,6 +12,8 @@ const login = (state = INITIAL_STATE, action) => {
     case LOGIN_INFO:
       return {
         ...state,
+        assertions: 0,
+        score: 0,
         name: action.name,
         gravatarEmail: `https://www.gravatar.com/avatar/${action.gravatar}`,
       };
