@@ -7,9 +7,9 @@ const setLocalStorage = () => {
   const ranking = JSON.parse(localStorage.getItem('ranking'));
   if (ranking && ranking.length > 0) {
     const updateRaking = JSON.stringify([...ranking, player]);
-    localStorage.setItem('ranking', updateRaking);
+    return localStorage.setItem('ranking', updateRaking);
   }
-  localStorage.setItem('ranking', JSON.stringify(player));
+  return localStorage.setItem('ranking', JSON.stringify([player]));
 };
 
 export default setLocalStorage;
