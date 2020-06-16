@@ -64,7 +64,7 @@ class Game extends React.Component {
         <button
           data-testid="btn-next"
           type="button"
-          className="button uk-button uk-button-danger uk-width-1-1"
+          className="button-next"
           onClick={() => this.onClick(5)}
         >
           PRÓXIMA
@@ -76,7 +76,7 @@ class Game extends React.Component {
         <button
           data-testid="btn-next"
           type="button"
-          className="button uk-button uk-button-danger uk-width-1-1"
+          className="button-next"
           onClick={() => this.onClick(5)}
         >
           FEEDBACK
@@ -109,20 +109,22 @@ class Game extends React.Component {
     if (data) {
       return (
         <div className="flexbox">
-          <div className="size">
+          <div className="size-game">
             <Navbar />
-            <div className="timer">{timer}</div>
-            <TriviaBody
-              data={data[index]}
-              onHandleSelect={this.onHandleSelect}
-              selected={selected}
-            />
-            {selected && this.getNextButton()}
+            <div className="btn-container">
+              <div className="timer">{timer}</div>
+              <TriviaBody
+                data={data[index]}
+                onHandleSelect={this.onHandleSelect}
+                selected={selected}
+              />
+              {selected && this.getNextButton()}
+              </div>
           </div>
         </div>
       );
     }
-    return <p>Loading...</p>;
+    return false;
   }
 }
 

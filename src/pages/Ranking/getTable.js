@@ -3,6 +3,7 @@ import React from 'react';
 export const tableHead = () => (
   <thead>
     <tr>
+      <th>Avatar</th>
       <th>Nome</th>
       <th>Pontuação</th>
     </tr>
@@ -16,7 +17,7 @@ export const tableBody = (players) => (
       .map((player, index) => (
         <tr key={player.name}>
           <th>
-            <img src={player.picture} alt={player.name} />
+            <img className="ranking-img" src={player.picture} alt={player.name} />
           </th>
           <th data-testid={`player-name-${index}`}>{player.name}</th>
           <th data-testid={`player-score-${index}`}>{player.score}</th>

@@ -7,14 +7,18 @@ function Ranking() {
   const ranking = JSON.parse(localStorage.getItem('ranking'));
   return (
     <div className="flexbox">
-      <h4 data-testeid="ranking-title">Ranking</h4>
-      <div>
-        {tableHead()}
-        {tableBody(ranking)}
+      <div className="size-ranking">
+      <h4 data-testeid="ranking-title" className="ranking-title">Ranking</h4>
+      <div className="ranking-container">
+        <div>
+          {tableHead()}
+          {tableBody(ranking)}
+        </div>
+        <button data-testid="btn-go-home" className="btn-start">
+          <Link to="/">Início</Link>
+        </button>
       </div>
-      <button data-testid="btn-go-home">
-        <Link to="/">Início</Link>
-      </button>
+      </div>
     </div>
   );
 }

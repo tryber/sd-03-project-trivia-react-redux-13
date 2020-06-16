@@ -43,7 +43,7 @@ class AnswersButtons extends React.Component {
         );
       });
     }
-    return <p>Loading...</p>;
+    return <p className="loading" />;
   }
 
   handleRandomizedAnswers() {

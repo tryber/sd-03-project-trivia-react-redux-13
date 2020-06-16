@@ -1,10 +1,12 @@
 .buttons {
-  border-radius: 5px;
-  box-shadow: 1px 1px 5px 1px rgba(1, 1, 1, 0.75);
+  align-items: center;
+  border: 1px solid crimson;
+  color: crimson;
   display: flex;
-  margin-top: 5px;
-  padding: 10px;
-  width: 245px;
+  height: 35px;
+  justify-content: center;
+  margin: 10px auto;
+  width: 250px;
 }
 
 .correct {
@@ -13,12 +15,4 @@
 
 .incorrect {
   border: 3px solid red;
-}
-
-.timer {
-  color: crimson;
-  display: flex;
-  font-size: 20px;
-  justify-content: center;
-  margin: 20px auto 0;
 }
