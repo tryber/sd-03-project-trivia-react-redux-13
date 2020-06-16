@@ -21,7 +21,7 @@ class Feedback extends React.Component {
           <h2 data-testid="feedback-text">{answerFeedback}</h2>
           <p> Pontuação:</p>
           <p>
-            Você fez 
+            Você fez
             <span data-testid="feedback-total-score">{score}</span>
             pontos
           </p>
