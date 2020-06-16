@@ -32,16 +32,16 @@
 
 .button-feedback {
   align-items: center;
-  display: flex;
   background-color: crimson;
   border-style: none;
   color: white;
+  display: flex;
   height: 35px;
   justify-content: center;
   margin-top: 10px;
   width: 250px;
 }
 
-a{
+a {
   text-decoration: none;
 }

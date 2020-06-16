@@ -17,7 +17,7 @@ function Ranking() {
           <button data-testid="btn-go-home" className="btn-start">
             <Link to="/">Início</Link>
           </button>
-      </div>
+        </div>
       </div>
     </div>
   );

@@ -25,9 +25,9 @@ class Feedback extends React.Component {
             <p className="score-assertions">
               Você fez<span data-testid="feedback-total-score"> {score} </span>pontos
             </p>
-            <p className="score-assertions">
-              ...e acertou<span data-testid="feedback-total-question"> {assertions} </span>pergunta(s)!
-            </p>
+            <p className="score-assertions">...e acertou
+              <span data-testid="feedback-total-question"> {assertions} </span>
+            pergunta(s)!</p>
             <section>
               <div >
                 <GetLinks />

@@ -49,9 +49,9 @@ td , th {
 
 .btn-start {
   align-items: center;
-  display: flex;
   background-color: crimson;
   border-style: none;
+  display: flex;
   height: 35px;
   justify-content: center;
   margin-top: 40px;
