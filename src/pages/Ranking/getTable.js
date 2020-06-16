@@ -18,8 +18,8 @@ export const tableBody = (players) => (
           <th>
             <img src={player.picture} alt={player.name} />
           </th>
-          <th data-testeid={`player-name-${index}`}>{player.name}</th>
-          <th data-testeid={`player-score-${index}`}>{player.score}</th>
+          <th data-testid={`player-name-${index}`}>{player.name}</th>
+          <th data-testid={`player-score-${index}`}>{player.score}</th>
         </tr>
       ))}
   </tbody>
