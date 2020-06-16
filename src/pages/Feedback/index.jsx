@@ -4,11 +4,6 @@ import GetLinks from './GetLinks';
 import setLocalStorage from './setLocalStorage';
 
 class Feedback extends React.Component {
-  constructor(props) {
-    super(props);
-    this.setLocalStorage = this.setLocalStorage.bind(this);
-  }
-
   componentDidMount() {
     setLocalStorage();
   }
