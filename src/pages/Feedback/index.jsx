@@ -19,8 +19,9 @@ class Feedback extends React.Component {
         <div className="size">
           <Navbar />
           <h2 data-testid="feedback-text">{answerFeedback}</h2>
-          <p data-testid="feedback-total-score">{`Você fez ${score} pontos`}</p>
-          <p data-testid="feedback-total-question">{`...e acertou ${assertions} pergunta(s)!`}</p>
+          <p> Pontuação:</p>
+          <p>Você fez <span data-testid="feedback-total-score">{score}</span> pontos</p>
+          <p>...e acertou <span data-testid="feedback-total-question">{assertions}</span> pergunta(s)!</p>
           <section>
             <div >
               <GetLinks />

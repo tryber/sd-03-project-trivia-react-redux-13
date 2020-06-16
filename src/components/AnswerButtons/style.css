@@ -4,7 +4,7 @@
   display: flex;
   margin-top: 5px;
   padding: 10px;
-  width: 300px;
+  width: 245px;
 }
 
 .correct {
@@ -13,4 +13,12 @@
 
 .incorrect {
   border: 3px solid red;
+}
+
+.timer {
+  color: crimson;
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  margin: 20px auto 0;
 }
