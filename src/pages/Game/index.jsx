@@ -119,7 +119,7 @@ class Game extends React.Component {
                 selected={selected}
               />
               {selected && this.getNextButton()}
-              </div>
+            </div>
           </div>
         </div>
       );

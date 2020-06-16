@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Logo from '../../trivia.png';
-import IconConfig from './config.png';
 import { requestFetch, infoState } from '../../action';
 import './style.css';
 

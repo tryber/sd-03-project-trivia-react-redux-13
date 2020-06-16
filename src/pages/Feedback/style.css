@@ -33,11 +33,11 @@
 .button-feedback {
   align-items: center;
   display: flex;
-  justify-content: center;
   background-color: crimson;
   border-style: none;
   color: white;
   height: 35px;
+  justify-content: center;
   margin-top: 10px;
   width: 250px;
 }

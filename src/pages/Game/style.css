@@ -31,11 +31,11 @@ input {
 .button-next {
   align-items: center;
   display: flex;
-  justify-content: center;
   background-color: crimson;
   border-style: none;
   color: white;
   height: 35px;
+  justify-content: center;
   margin-top: 10px;
   width: 250px;
 }
@@ -52,17 +52,19 @@ input {
 .loading {
   animation: spin 2s linear infinite;
   border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid  crimson;
   border-radius: 50%;
+  border-top: 16px solid  crimson;
   height: 80px;
   width: 80px;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
 @keyframes spin {
+
   0% { transform: rotate(0deg); }
+
   100% { transform: rotate(360deg); }
 }

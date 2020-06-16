@@ -8,15 +8,15 @@ function Ranking() {
   return (
     <div className="flexbox">
       <div className="size-ranking">
-      <h4 data-testeid="ranking-title" className="ranking-title">Ranking</h4>
-      <div className="ranking-container">
-        <div>
-          {tableHead()}
-          {tableBody(ranking)}
-        </div>
-        <button data-testid="btn-go-home" className="btn-start">
-          <Link to="/">Início</Link>
-        </button>
+        <h4 data-testeid="ranking-title" className="ranking-title">Ranking</h4>
+        <div className="ranking-container">
+          <div>
+            {tableHead()}
+            {tableBody(ranking)}
+          </div>
+          <button data-testid="btn-go-home" className="btn-start">
+            <Link to="/">Início</Link>
+          </button>
       </div>
       </div>
     </div>

@@ -41,7 +41,7 @@ table {
   border-collapse: collapse;
 }
 
-td, th {
+td , th {
   border: 1px solid #999;
   padding: 0.5rem;
   text-align: center;
@@ -50,15 +50,15 @@ td, th {
 .btn-start {
   align-items: center;
   display: flex;
-  justify-content: center;
   background-color: crimson;
   border-style: none;
   height: 35px;
+  justify-content: center;
   margin-top: 40px;
   width: 250px;
 }
 
-.btn-start a{
+.btn-start a {
   color: white;
   font-weight: 700;
 }
