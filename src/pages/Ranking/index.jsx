@@ -8,7 +8,7 @@ function Ranking() {
   return (
     <div className="flexbox">
       <div className="size-ranking">
-        <h4 data-testeid="ranking-title" className="ranking-title">Ranking</h4>
+        <h4 data-testid="ranking-title" className="ranking-title">Ranking</h4>
         <div className="ranking-container">
           <div>
             {tableHead()}
