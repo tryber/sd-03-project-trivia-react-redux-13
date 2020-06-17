@@ -43,7 +43,7 @@ input {
 .timer {
   color: crimson;
   display: flex;
-  font-family: Roboto Condensed, sans-serif;
+  font-family: Roboto Condensed, Verdana, sans-serif;
   font-size: 20px;
   font-weight: 700;
   justify-content: center;

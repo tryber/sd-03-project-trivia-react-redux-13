@@ -17,12 +17,12 @@
 
 .answer-feedback {
   color: crimson;
-  font-family: Roboto Condensed, sans-serif;
+  font-family: Roboto Condensed, Verdana, sans-serif;
   font-size: 30px;
 }
 
 .pontuation {
-  font-family: Roboto Condensed, sans-serif;
+  font-family: Roboto Condensed, Verdana, sans-serif;
   font-size: 20px;
 }
 
