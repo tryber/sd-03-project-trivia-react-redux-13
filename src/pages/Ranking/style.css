@@ -50,7 +50,9 @@ td , th {
   align-items: center;
   background-color: crimson;
   border-style: none;
+  color: white;
   display: flex;
+  font-family: Montserrat, sans-serif;
   height: 35px;
   justify-content: center;
   margin-top: 40px;
@@ -60,4 +62,5 @@ td , th {
 .btn-start a {
   color: white;
   font-weight: 700;
+  text-decoration: none;
 }
