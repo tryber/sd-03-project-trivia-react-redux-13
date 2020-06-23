@@ -3,7 +3,6 @@
   box-shadow: 1px 1px 50px 10px rgba(1, 1, 1, 40);
   display: flex;
   flex-direction: column;
-  height: 500px;
   margin: auto;
   width: 500px;
 }

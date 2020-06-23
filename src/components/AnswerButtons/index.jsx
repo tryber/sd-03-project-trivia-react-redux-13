@@ -27,9 +27,9 @@ class AnswersButtons extends React.Component {
     const { correct_answer: correctAnswer, difficulty } = data;
     const { randomizedAnswers } = this.state;
     if (randomizedAnswers) {
+      let index = -1;
       return randomizedAnswers.map((result) => {
-        let index = 0;
-        if (result !== correctAnswer) index += 1;
+        if (result !== correctAnswer) { index = index + 1 };
         return (
           <Button
             index={index}
