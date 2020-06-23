@@ -3,9 +3,9 @@ export const onHandleClick = (result, correctAnswer, difficulty, onHandleSelect)
   return onHandleSelect(false);
 };
 
-export const getClasses = (selected, result, correctAnswer) => {
+export const getClasses = (selected, result, correctAnswer, index) => {
   if (selected) {
     return result === correctAnswer ? 'buttons correct' : 'buttons incorrect';
   }
-  return 'buttons';
+  return `buttons ${index}`;
 };

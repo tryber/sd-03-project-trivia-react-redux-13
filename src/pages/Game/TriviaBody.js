@@ -13,7 +13,7 @@ function TriviaBody({ data, onHandleSelect, selected }) {
       </div>
     );
   }
-  return <p>Loading...</p>;
+  return <p className="loading" />;
 }
 
 TriviaBody.propTypes = {

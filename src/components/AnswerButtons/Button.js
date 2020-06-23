@@ -6,7 +6,7 @@ function Button({ index, correctAnswer, result, difficulty, onHandleSelect, sele
   return (
     <button
       onClick={() => onHandleClick(result, correctAnswer, difficulty, onHandleSelect)}
-      className={getClasses(selected, result, correctAnswer)}
+      className={getClasses(selected, result, correctAnswer, index)}
       disabled={selected}
       data-testid={
         result === correctAnswer ? 'correct-answer' : `wrong-answer-${index}`

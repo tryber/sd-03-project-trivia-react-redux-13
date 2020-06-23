@@ -1,14 +1,43 @@
-.flexbox {
+.size-feedback {
+  border-radius: 7px;
+  box-shadow: 1px 1px 50px 10px rgba(1, 1, 1, 40);
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 500px;
+}
+
+.feedback-container {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 200vh;
-  justify-content: center;
+  margin: auto;
+  padding: 20px;
 }
 
-.size {
-  border-radius: 7px;
-  box-shadow: 1px 1px 50px 10px rgba(1, 1, 1, 40);
-  padding: 20px;
-  width: 350px;
+.answer-feedback {
+  color: crimson;
+  font-family: Roboto Condensed, Verdana, sans-serif;
+  font-size: 30px;
+}
+
+.score-assertions {
+  font-family: Montserrat, sans-serif;
+}
+
+.button-feedback {
+  align-items: center;
+  background-color: crimson;
+  border-style: none;
+  color: white;
+  display: flex;
+  font-family: Montserrat, sans-serif;
+  height: 35px;
+  justify-content: center;
+  margin-top: 10px;
+  width: 250px;
+}
+
+a {
+  text-decoration: none;
 }

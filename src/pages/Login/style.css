@@ -1,20 +1,37 @@
-.size {
+.size-login {
   border-radius: 7px;
   box-shadow: 1px 1px 50px 10px rgba(1, 1, 1, 40);
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: center;
   padding: 20px;
-  width: 250px;
+  width: 400px;
 }
 
-input {
-  margin-bottom: 5px;
-  margin-top: 5px;
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-margin {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+}
+
+.input {
+  height: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 300px;
 }
 
 .flexbox {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   justify-content: center;
 }
 
@@ -23,9 +40,34 @@ input {
   width: 30px;
 }
 
-.btn-icon {
-  background: white;
-  border: none;
-  cursor: pointer;
-  padding-bottom: 10px;
+.btn-config {
+  background-color: crimson;
+  border-style: none;
+  color: white;
+  font-family: Montserrat, sans-serif;
+  height: 35px;
+  margin-top: 10px;
+  width: 250px;
+}
+
+.btn-login {
+  background-color: crimson;
+  border-style: none;
+  color: white;
+  font-family: Montserrat, sans-serif;
+  height: 35px;
+  width: 250px;
+}
+
+.btn-login-disable {
+  border: 1px solid crimson;
+  color: crimson;
+  font-family: Montserrat, sans-serif;
+  height: 35px;
+  width: 250px;
+}
+
+.logo-img {
+  margin: 0 auto;
+  width: 306px;
 }

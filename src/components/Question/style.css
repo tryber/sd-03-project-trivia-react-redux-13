@@ -1,3 +1,10 @@
-.border {
-  border-radius: 7px;
+.category {
+  color: black;
+  font-family: Roboto Condensed, Verdana, sans-serif;
+  text-align: center;
+}
+
+.question {
+  font-family: Montserrat, sans-serif;
+  text-align: center;
 }

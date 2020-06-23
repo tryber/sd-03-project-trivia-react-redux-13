@@ -5,16 +5,10 @@ import './style.css';
 
 function Navbar({ name, score, gravatar }) {
   return (
-    <nav>
-      <div className="left">
-        <h3 data-testid="header-player-name">
-          <img src={gravatar} className="img" alt="avatar" data-testid="header-profile-picture" />
-          Jogador: {name}
-        </h3>
-      </div>
-      <div data-testid="header-score" className="right">
-        <h3>{ score } Pontos</h3>
-      </div>
+    <nav className="nav-container">
+      <img src={gravatar} className="img" alt="avatar" data-testid="header-profile-picture" />
+      <h3 data-testid="header-player-name">{name}</h3>
+      <h3 data-testid="header-score">{ score } Pontos</h3>
     </nav>
   );
 }

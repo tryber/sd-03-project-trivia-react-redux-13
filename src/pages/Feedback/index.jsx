@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../../components/Navbar';
 import GetLinks from './GetLinks';
 import setLocalStorage from './setLocalStorage';
+import './style.css';
 
 class Feedback extends React.Component {
   componentDidMount() {
@@ -16,16 +17,22 @@ class Feedback extends React.Component {
     const answerFeedback = assertions >= 3 ? 'Mandou bem!' : 'Podia ser melhor...';
     return (
       <div className="flexbox">
-        <div className="size">
+        <div className="size-feedback">
           <Navbar />
-          <h2 data-testid="feedback-text">{answerFeedback}</h2>
-          <p data-testid="feedback-total-score">{`Você fez ${score} pontos`}</p>
-          <p data-testid="feedback-total-question">{`Foram ${assertions} questões corretas!`}</p>
-          <section>
-            <div >
-              <GetLinks />
-            </div>
-          </section>
+          <div className="feedback-container">
+            <h2 data-testid="feedback-text" className="answer-feedback">{answerFeedback}</h2>
+            <p className="score-assertions">
+              Você fez<span data-testid="feedback-total-score"> {score} </span>pontos
+            </p>
+            <p className="score-assertions">...e acertou
+              <span data-testid="feedback-total-question"> {assertions} </span>
+            pergunta(s)!</p>
+            <section>
+              <div >
+                <GetLinks />
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     );

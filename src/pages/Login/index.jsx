@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Logo from '../../trivia.png';
-import IconConfig from './config.png';
 import { requestFetch, infoState } from '../../action';
 import './style.css';
 
@@ -31,7 +30,7 @@ class Login extends React.Component {
           <div className="uk-form-row">
             <button
               disabled
-              className="uk-button uk-button-secondary uk-width-1-1"
+              className="btn-login-disable"
               data-testid="btn-play"
             >
               Jogar
@@ -41,7 +40,7 @@ class Login extends React.Component {
           <div className="uk-form-row">
             <Link to="/play">
               <button
-                className="uk-button uk-button-secondary uk-width-1-1"
+                className="btn-login"
                 data-testid="btn-play"
                 onClick={this.handleGame}
               >
@@ -57,32 +56,28 @@ class Login extends React.Component {
   render() {
     return (
       <div className="flexbox">
-        <div className="uk-vertical-align-middle size">
-          <Link to="/settings"> <button className="btn-icon" data-testid="btn-settings" >
-            <img src={IconConfig} alt="config" className="icon" />
-          </button>
-          </Link>
-          <img className="uk-margin-bottom" width="306" height="104" src={Logo} alt="logo" />
-
-          <form className="uk-panel uk-panel-box uk-form">
-            <div className="uk-form-row">
+        <div className="size-login">
+          <img className="logo-img" src={Logo} alt="logo" />
+          <form className="form">
+            <div className="input-margin">
               <input
+                className="input"
                 onInput={(e) => this.setState({ email: e.target.value })}
-                data-testid="input-gravatar-email" className="uk-width-1-1 uk-form-large"
+                data-testid="input-gravatar-email"
                 type="email" placeholder="E-mail"
               />
-            </div>
-
-            <div className="uk-form-row">
               <input
+                className="input"
                 onInput={(e) => this.setState({ name: e.target.value })}
                 data-testid="input-player-name"
-                className="uk-width-1-1 uk-form-large"
                 type="text" placeholder="Nome"
               />
             </div>
-
-            <div className="uk-form-row"> {this.loginButton()} </div>
+            <div> {this.loginButton()} </div>
+            <Link to="/settings"> <button className="btn-config" data-testid="btn-settings" >
+              Configurações
+            </button>
+            </Link>
           </form>
         </div>
       </div>
