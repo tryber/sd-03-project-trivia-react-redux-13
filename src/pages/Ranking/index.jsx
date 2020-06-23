@@ -14,9 +14,7 @@ function Ranking() {
             {tableHead()}
             {tableBody(ranking)}
           </div>
-          <button data-testid="btn-go-home" className="btn-start">
-            <Link to="/">Início</Link>
-          </button>
+          <Link data-testid="btn-go-home" className="btn-start" to="/">Início</Link>
         </div>
       </div>
     </div>
