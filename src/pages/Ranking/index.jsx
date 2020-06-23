@@ -8,12 +8,12 @@ function Ranking() {
   return (
     <div className="flexbox">
       <div className="size-ranking">
-        <h3 data-testid="ranking-title" className="ranking-title">Ranking</h3>
+      <h4 data-testid="ranking-title" className="ranking-title">Ranking</h4>
         <div className="ranking-container">
-          <div>
+          <table>
             {tableHead()}
             {tableBody(ranking)}
-          </div>
+          </table>
           <Link data-testid="btn-go-home" className="btn-start" to="/">INÍCIO</Link>
         </div>
       </div>

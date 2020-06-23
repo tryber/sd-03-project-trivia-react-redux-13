@@ -15,7 +15,7 @@ export const tableBody = (players) => (
     {players
       .sort((a, b) => b.score - a.score)
       .map((player, index) => (
-        <tr key={player.name}>
+        <tr key={`${player.name}-${index}`}>
           <th>
             <img className="ranking-img" src={player.picture} alt={player.name} />
           </th>
